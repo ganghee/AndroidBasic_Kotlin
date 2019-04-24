@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".AlertActivity"
+                                             android:orientation="vertical"
+>
+    <Button
+            android:id="@+id/alertDialog_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DIALOG"
+            android:textSize="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+    <Button
+            android:id="@+id/toast_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TOAST"
+            android:textSize="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/alertDialog_btn"/>
+    <Button
+            android:id="@+id/select_dialog_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LIST"
+            android:textSize="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/toast_btn" />
+    <Button
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PROGRESS"
+            android:textSize="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/select_dialog_btn"
+    />
+
+
+</android.support.constraint.ConstraintLayout>
