@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:dividerPadding="1dp">
+    <RelativeLayout
+            android:id="@+id/navigation_category_first"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+        <TextView
+                android:text="뽀로로"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="14dp" android:textColor="#484848"
+                android:textStyle="bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/navigation_category_second"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+        <TextView
+                android:text="패티"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="14dp" android:textColor="#484848"
+                android:textStyle="bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/navigation_category_third"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+        <TextView
+                android:text="루피"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="14dp" android:textColor="#484848"
+                android:textStyle="bold"/>
+    </RelativeLayout>
+</LinearLayout>
