@@ -29,6 +29,7 @@ class AddCustomerActivity : AppCompatActivity() {
                 else
                     customer.maxCredit = editMaxCredit.text.toString().toDouble()
 
+                customer.phoneNumber = editPhoneNumber.text.toString()
                 MainActivity.dbHandler.addCustomer(this@AddCustomerActivity,customer)
                 clearEdits()
                 editCustomerName.requestFocus()
@@ -46,5 +47,6 @@ class AddCustomerActivity : AppCompatActivity() {
     private fun clearEdits(){
         editCustomerName.text.clear()
         editMaxCredit.text.clear()
+        editPhoneNumber.text.clear()
     }
 }

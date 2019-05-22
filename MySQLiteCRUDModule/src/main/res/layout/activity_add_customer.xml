@@ -30,11 +30,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnSave" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="28dp"
-            android:layout_marginTop="36dp" app:layout_constraintTop_toBottomOf="@+id/editMaxCredit"/>
+            android:layout_marginTop="48dp" app:layout_constraintTop_toBottomOf="@+id/editPhoneNumber"/>
     <Button
             android:text="cancel and close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnCancel" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-            android:layout_marginTop="36dp" app:layout_constraintTop_toBottomOf="@+id/editMaxCredit"/>
+            android:id="@+id/btnCancel" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
+            android:layout_marginTop="48dp" app:layout_constraintTop_toBottomOf="@+id/editPhoneNumber"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editPhoneNumber"
+            android:hint="Phone Number" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/editMaxCredit" android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

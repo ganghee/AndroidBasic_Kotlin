@@ -13,12 +13,13 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
     //싱글톤 패턴이다. 객체를 한번만 생성한 후 재활용한다.
     companion object {
         private val DATABASE_NAME = "MyData.db"
-        private val DATABASE_VERSION = 1
+        private val DATABASE_VERSION = 2
 
         val CUSTOMERS_TABLE_NAME = "Customers"
         val COLUMN_CUSTOMERID = "customerid"
         val COLUMN_CUSTOMERNAME = "customername"
         val COLUMN_MAXCREDIT = "maxcredit"
+        val COLUMN_PHONENO = "phoneno"
     }
 
     //DB에 Customers이름의 테이블을 만든다.
@@ -34,8 +35,12 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
 
     }
 
+    //버젼이 2가 되면 칼럼 하나를 더 추가한다.
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
+        if(oldVersion<2){
+            db?.execSQL("Alter Table $CUSTOMERS_TABLE_NAME " +
+            "Add $COLUMN_PHONENO TEXT NULL")
+        }
     }
 
     //DB에 저장된 데이터를 가져온다.
@@ -56,6 +61,7 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
                 customer.customerID = cursor.getInt(cursor.getColumnIndex(COLUMN_CUSTOMERID))
                 customer.customerName = cursor.getString(cursor.getColumnIndex(COLUMN_CUSTOMERNAME))
                 customer.maxCredit = cursor.getDouble(cursor.getColumnIndex(COLUMN_MAXCREDIT))
+                customer.phoneNumber = cursor.getString(cursor.getColumnIndex(COLUMN_PHONENO))
                 customers.add(customer)
                 cursor.moveToNext()
             }
@@ -72,6 +78,7 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
         val values = ContentValues()
         values.put(COLUMN_CUSTOMERNAME, customer.customerName)
         values.put(COLUMN_MAXCREDIT,customer.maxCredit)
+        values.put(COLUMN_PHONENO, customer.phoneNumber)
         val db = this.writableDatabase
         try {
             db.insert(CUSTOMERS_TABLE_NAME,null,values)
@@ -82,6 +89,7 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
         db.close()
     }
 
+    //칼럼에 있는 ID값과 DB의 id값이 같다면 DB의 데이터를 삭제한다.
     fun deleteCustomer(customerID: Int): Boolean {
         val qry = "Delete From $CUSTOMERS_TABLE_NAME where $COLUMN_CUSTOMERID = $customerID"
         val db = this.writableDatabase
@@ -96,12 +104,14 @@ class DBHandler (context: Context, name :String?, factory: SQLiteDatabase.Cursor
         return result
     }
 
-    fun updateCustomer(id: String, customerName : String, maxCredit : String) : Boolean{
+    //이름이 같다면 데이터를 업데이트 한다.
+    fun updateCustomer(id: String, customerName : String, maxCredit : String, phoneNumber : String) : Boolean{
         val db = this.writableDatabase
         val contentValues = ContentValues()
         var result = false
         contentValues.put(COLUMN_CUSTOMERNAME, customerName)
         contentValues.put(COLUMN_MAXCREDIT,maxCredit.toDouble())
+        contentValues.put(COLUMN_PHONENO,phoneNumber)
         try {
             db.update(CUSTOMERS_TABLE_NAME,contentValues,"$COLUMN_CUSTOMERNAME = ?",arrayOf(id))
             result = true
