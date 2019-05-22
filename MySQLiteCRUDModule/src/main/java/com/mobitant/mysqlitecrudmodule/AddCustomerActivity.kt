@@ -23,9 +23,12 @@ class AddCustomerActivity : AppCompatActivity() {
             {
                 val customer = Customer()
                 customer.customerName = editCustomerName.text.toString()
+
                 if(editMaxCredit.text.isEmpty())
-                    customer.maxCredit = 0.0 else
+                    customer.maxCredit = 0.0
+                else
                     customer.maxCredit = editMaxCredit.text.toString().toDouble()
+
                 MainActivity.dbHandler.addCustomer(this@AddCustomerActivity,customer)
                 clearEdits()
                 editCustomerName.requestFocus()
@@ -39,6 +42,7 @@ class AddCustomerActivity : AppCompatActivity() {
         }
     }
 
+    //이름과 비용의 입력한 문자들을 지운다.
     private fun clearEdits(){
         editCustomerName.text.clear()
         editMaxCredit.text.clear()
