@@ -48,6 +48,8 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
         p0.txtMaxCredit.text = customer.maxCredit.toString()
         p0.txtPhoneNumber.text = customer.phoneNumber
 
+        //삭제 버튼 이벤트
+        //다이얼로그를 띄워서 삭제여부를 다시한번 더 묻는다.
         p0.btnDelete.onClick {
             val customerName = customer.customerName
             var alertDialog = AlertDialog.Builder(mCtx)
@@ -67,6 +69,9 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
                 .setIcon(R.drawable.ic_warning)
                 .show()
         }
+
+        //수정 버튼 이벤트
+        //다이얼로그와 뷰를 연결하여 수정할 수 있는 창을 띄운다.
         p0.btnUpdate.onClick {
             val inflater = LayoutInflater.from(mCtx)
             val view = inflater.inflate(R.layout.item_customers_update,null)
