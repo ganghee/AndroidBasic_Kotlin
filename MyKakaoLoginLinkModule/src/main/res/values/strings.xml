@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyKakaoLoginLinkModule</string>
+    <string name="kakao_app_key">72998e48ecabe85a411fd5fe2fcd8fe2</string>
+    <string name="title_activity_hash_key">HashKeyActivity</string>
+</resources>
