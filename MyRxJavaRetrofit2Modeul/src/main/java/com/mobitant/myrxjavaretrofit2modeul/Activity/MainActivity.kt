@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         //init API
         //설정된 RetrofitClient 객체에 API 인터페이스를 구현한다.
         //이때 jsonApi가 초기화 된다.
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //compositeDisposable을 통해 구독을 수행한다.
+    //compositeDisposable을 통해 구독을 수행한다. 코인 DI
     //subscribe메소드의 첫 번째 파라미터는 정상적으로 수행되었을 때
     //두 번째 파라미터는 실패했을 때이다.
     private fun fetchData() {
