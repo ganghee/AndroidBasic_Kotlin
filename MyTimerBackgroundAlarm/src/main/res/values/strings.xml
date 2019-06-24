@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyTimerBackgroundAlarm</string>
+    <string name="title_activity_timer">TimerActivity</string>
+</resources>
