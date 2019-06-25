@@ -1,7 +1,7 @@
 package com.mobitant.myrealmmodule
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import io.realm.Realm
 import io.realm.Sort
 import io.realm.kotlin.where
